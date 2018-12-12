@@ -7,10 +7,13 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class OptionMenu extends Account {
-       
+       /*MenuInput is used to extract input from console*/
 		Scanner MenuInput=new Scanner(System.in);
+		/*MoneyFormat is define the format to display the money */
        public DecimalFormat MoneyFormat=new DecimalFormat("$#,##0.00");
-        HashMap<Integer,Integer>data=new HashMap<>();
+       /* data in a database stores account number and pin pairs*/ 
+       HashMap<Integer,Integer>data=new HashMap<>();
+       /* getLogin checks the login credentials*/
 	    public void getLogin() throws IOException
 	    {   int x=1;
 	    	do {
@@ -19,8 +22,10 @@ public class OptionMenu extends Account {
 	             data.put(1267346, 6479);
 	    		System.out.println("Welcome to the ATM Project!");
 	    		System.out.println("Enter your customer number");
+	    		/*take the account number*/
 	    		setCustomerNumber(MenuInput.nextInt());
 	    		System.out.println("Enter your pin number");
+	    		/*take the pin number*/
 	    		setPinNumber(MenuInput.nextInt());
 	             }catch(Exception e)
 	             {
@@ -34,6 +39,9 @@ public class OptionMenu extends Account {
 	             }
 	    	}while(x==1);
 	    }
+	    
+	    /* get the type of account and validte the functions */
+	     
 		private void getAccountType() {
 			// TODO Auto-generated method stub
 			System.out.println("Select the account you want to access");
@@ -50,6 +58,9 @@ public class OptionMenu extends Account {
 			   getAccountType();
 			}
 				}
+		
+		/*Saving Account */
+		
 		private void getSaving() {
 			// TODO Auto-generated method stub
 			System.out.println("Saving Account");
@@ -74,6 +85,9 @@ public class OptionMenu extends Account {
 			}
 
 		}
+		
+		/*Checking Account*/
+		
 		private void getChecking() {
 			// TODO Auto-generated method stub
 			System.out.println("Checking Account");
